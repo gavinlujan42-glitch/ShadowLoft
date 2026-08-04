@@ -15,3 +15,7 @@
 @media(max-width:800px){.masthead{height:60px}.hero{padding-top:82px}.title-sigil{width:100%;margin:0}.hero-copy>.eyebrow,.hero-copy>h1,.hero-copy>.dek,.hero-copy>.enter{margin-left:6vw;margin-right:6vw}.hero-copy>h1{font-size:clamp(4.4rem,20vw,7rem)}.hero-orbit{top:42vh}}
 @media(max-width:1000px){.video-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.video-grid{grid-template-columns:1fr}.manifesto:after{inset:50% 0 0}}
 @media(prefers-reduced-motion:reduce){.video-signal img,.scanline{animation:none}}
+
+/* The Cosmos: 6 × 8 living signal matrix */
+.broadcast{padding-left:3vw;padding-right:3vw}.broadcast>.section-head{padding-inline:5vw}.video-grid{grid-template-columns:repeat(6,1fr)}.video-grid>iframe,.video-signal{aspect-ratio:1}.video-signal img{opacity:1;transition:opacity .55s ease,filter .3s ease}.video-signal img.switching{opacity:.08}
+@media(max-width:1200px){.video-grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:800px){.video-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:560px){.video-grid{grid-template-columns:repeat(2,1fr)}}
