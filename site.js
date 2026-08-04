@@ -1,8 +1,14 @@
-const $=s=>document.querySelector(s);const frame=$("#youtubeFrame"),empty=$("#videoEmpty"),channelLink=$("#channelLink");
+const $=s=>document.querySelector(s);
 const defaultConfig={youtube:{type:"playlist",value:"PLIIztMdZuAfWx11diGXqx4ad2Gn9pyTrG",randomMax:19},channelUrl:"https://www.youtube.com/watch?v=Rj-kZYt4z4Y&list=PLIIztMdZuAfWx11diGXqx4ad2Gn9pyTrG"};
 const config=JSON.parse(localStorage.getItem("shadowloftConfig")||JSON.stringify(defaultConfig));
-function embedUrl(c){if(!c||!c.value)return "";const v=c.value.trim();if(c.type==="video")return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v)}`;if(c.type==="playlist"){const max=Math.max(0,Number(c.randomMax)||0),index=Math.floor(Math.random()*(max+1));return `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(v)}&index=${index}`};if(c.type==="channel"&&v.startsWith("UC"))return `https://www.youtube-nocookie.com/embed/videoseries?list=UU${encodeURIComponent(v.slice(2))}`;return ""}
-const src=embedUrl(config.youtube);if(src){frame.src=src;frame.style.display="block";empty.style.display="none";channelLink.href=config.channelUrl||"https://youtube.com"}
+const playlist=config.youtube?.type==="playlist"?config.youtube.value:defaultConfig.youtube.value;
+const max=Math.max(7,Number(config.youtube?.randomMax)||defaultConfig.youtube.randomMax);
+const indices=Array.from({length:max+1},(_,i)=>i).sort(()=>Math.random()-.5).slice(0,8);
+const art=["assets/petroglyph-anomaly.webp","assets/petroglyph-orbit.webp","assets/petroglyph-portal.webp"];
+const labels=["Desert Signal","Orbital Bone","Taos Relay","Anomaly Field","Solar Howl","Night Mesh","Black Mesa","Zia Frequency"];
+const grid=$("#videoGrid");
+indices.forEach((index,i)=>{const card=document.createElement("button");card.className="video-signal";card.type="button";card.style.setProperty("--delay",`${-i*1.7}s`);card.innerHTML=`<img src="${art[i%art.length]}" alt="" loading="lazy" decoding="async"><span class="scanline"></span><span class="signal-id">0${i+1} / ${labels[i]}</span><span class="play">▶</span><small>Playlist vector ${String(index).padStart(2,"0")}</small>`;card.setAttribute("aria-label",`Play ${labels[i]}, playlist position ${index}`);card.addEventListener("click",()=>{const iframe=document.createElement("iframe");iframe.title=`ShadowLoft transmission ${i+1}`;iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";iframe.allowFullscreen=true;iframe.src=`https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlist)}&index=${index}&autoplay=1`;card.replaceWith(iframe)});grid.append(card)});
+$("#channelLink").href=config.channelUrl||defaultConfig.channelUrl;
 $("#inviteForm").addEventListener("submit",e=>{e.preventDefault();$("#formNote").textContent="The door has heard you. Transmission pending.";e.target.reset()});
 $("#soundToggle").addEventListener("click",e=>{const on=e.currentTarget.getAttribute("aria-pressed")==="true";e.currentTarget.setAttribute("aria-pressed",String(!on));e.currentTarget.lastChild.textContent=!on?" Signal live":" Signal off"});
 document.querySelectorAll(".blog-lane").forEach((lane,i)=>{const items=[...lane.children].sort(()=>Math.random()-.5);lane.replaceChildren(...items,...items.map(item=>item.cloneNode(true)));lane.style.setProperty("--drift",`${48+Math.floor(Math.random()*30)+i*5}s`)});
