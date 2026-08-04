@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090807">
+  <meta name="description" content="ShadowLoft — a high-desert night-culture salon broadcasting art, sound, essays, and strange signals after dark.">
+  <title>ShadowLoft | The High Desert After Dark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="ShadowLoft home">SHADOW<span>LOFT</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#signal">Signal</a><a href="#dispatches">Dispatches</a><a href="#salon">Salon</a>
+    </nav>
+    <button class="sound-toggle" id="soundToggle" aria-pressed="false" title="Toggle ambient signal"><span></span> Signal off</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-orbit" aria-hidden="true"><span class="moon"></span><span class="hawk">◆</span></div>
+      <div class="hero-copy">
+        <p class="eyebrow">A night-culture salon · New Mexico · Est. MMXXVI</p>
+        <h1>The high desert<br><em>after dark.</em></h1>
+        <p class="dek">Music, art, forbidden histories, midnight conversations, and transmissions from the beautiful edge of nowhere.</p>
+        <a class="enter" href="#signal">Enter the signal <span>↘</span></a>
+      </div>
+      <aside class="on-air">
+        <div><span class="pulse"></span> Now transmitting</div>
+        <p>JACK NIGHTSHADE</p>
+        <small>THE SHADOW HOUR / 11:47 PM MDT</small>
+      </aside>
+      <div class="desert-line" aria-hidden="true"></div>
+    </section>
+
+    <section class="manifesto" id="salon">
+      <p class="section-no">01 / The Salon</p>
+      <blockquote>“There are rooms the daylight cannot find.”</blockquote>
+      <div class="manifesto-copy">
+        <p>ShadowLoft is a gathering place for the nocturnal imagination—an independent salon rooted in the Southwest and tuned to frequencies beyond the obvious.</p>
+        <p>Come for the broadcast. Stay for the art, the argument, the poetry, and the long electric silence between stations.</p>
+      </div>
+    </section>
+
+    <section class="broadcast" id="signal">
+      <div class="section-head"><p class="section-no">02 / The Signal</p><h2>From the loft</h2><span>Live & archived transmissions</span></div>
+      <div class="video-frame">
+        <iframe id="youtubeFrame" title="ShadowLoft YouTube broadcast" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-empty" id="videoEmpty"><span>◉</span><strong>The frequency is being tuned.</strong><small>Jack Nightshade will be on the air shortly.</small></div>
+      </div>
+      <div class="broadcast-meta"><p>THE SHADOW HOUR</p><p>Sound · Image · High Desert Intelligence</p><a id="channelLink" href="https://youtube.com" target="_blank" rel="noopener">Open channel ↗</a></div>
+    </section>
+
+    <section class="dispatches" id="dispatches">
+      <div class="section-head"><p class="section-no">03 / Dispatches</p><h2>Notes from<br>the borderlands</h2></div>
+      <div class="cards">
+        <article class="feature-card"><p>Field Note No. 001</p><h3>The moon keeps its own archive</h3><p class="summary">On memory, desert radio, and what the night reveals when the official story goes quiet.</p><span>Essay · 7 min</span></article>
+        <article><p>Frequency</p><h3>Dust, voltage & the new sublime</h3><span>Conversation · 42 min</span></article>
+        <article><p>Night Work</p><h3>Artists who build by starlight</h3><span>Portfolio · 12 plates</span></article>
+      </div>
+    </section>
+
+    <section class="invitation">
+      <div class="ornament" aria-hidden="true">✦</div><p>YOU HAVE FOUND THE DOOR</p><h2>Not everything belongs<br>in daylight.</h2><p>Join the private dispatch. Occasional transmissions. No noise.</p>
+      <form id="inviteForm"><label class="sr-only" for="email">Email address</label><input id="email" type="email" placeholder="YOUR ADDRESS" required><button>Request entry ↗</button></form><div id="formNote" role="status"></div>
+    </section>
+  </main>
+
+  <footer><a class="wordmark" href="#top">SHADOW<span>LOFT</span></a><p>Broadcasting from the Land of Enchantment<br>© 2026 ShadowLoft</p><p class="signoff">Stay awake. Stay strange.<br>— Jack Nightshade</p></footer>
+  <script src="site.js"></script>
+</body>
+</html>
